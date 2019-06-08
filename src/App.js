@@ -1,83 +1,43 @@
 import React,{Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-// function Hello(props){
-//  return <h1>Hola {props.title}</h1>;
-// }
+class Contador extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      contador: this.props.contadorInicial
+    }
 
-// const Hello2=(props)=><h1>Hola {props.title}</h1>;
+    setInterval(()=>{
+      this.setState({contador: this.state.contador + 1});
+    },1000);
+  }
 
-class Hello3 extends Component{
+  //state = {contador: 3};
   render(){
     return(
-      <h1>Hola {this.props.title}</h1>
+      <ContadorNumero numero={this.state.contador}/>
     );
   }
 }
 
-class Title extends Component{
+Contador.defaultProps ={
+  contadorInicial : 0
+}
+
+class ContadorNumero extends Component{
   render(){
     return(
-      <h1>{this.props.text}</h1>
+      <span>{this.props.numero}</span>
     );
   }
 }
-
-Title.defaultProps={
-  text:'default propos'
-};
-
-class Text extends Component{
-  render(){
-    //Destructuring
-    const {
-      boolean,
-      arrayOfNumbers,
-      multiply,
-      text,
-      number,
-      objectWithInfo,
-      title
-      } = this.props;
-
-    const textoSegunBool= boolean ? "Cierto" : "Falso";
-    const mappeddNumbers = arrayOfNumbers.map(multiply);
-
-    return(
-      <div>
-        {title}
-        <p>{text}</p>
-        <p>{number}</p>
-        <p>{textoSegunBool}</p>
-        <p>{mappeddNumbers.join(', ')}</p>
-        <p>{objectWithInfo.key2}</p>
-      </div>
-    );
-  };
-}
-
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <Hello3 title="Adrian Hernandez, props"/>
-
-        <Text 
-        text='esto es texto' 
-        number={2} 
-        boolean={true}
-        arrayOfNumbers={[1,5,3]}
-        objectWithInfo={{key:'valor key', key2:'valor key 2'}}
-        multiply={(number)=>number*2}
-        title={<h1>desde props element</h1>}/>
-
-        <Title/>
-
-      </header>
+      <p>mi primer componente con state</p>
+      <Contador contadorInicial={150}/>
     </div>
   );
 }
