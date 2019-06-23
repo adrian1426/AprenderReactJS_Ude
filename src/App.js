@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import FetchExample from './sections/fetch-example';
+import EjemploCiclo from './sections/ejemploCicloAcualizacion';
 
 class App extends React.Component{
 
   render(){
     return (
       <div className="App">
-      <FetchExample/>
+      <EjemploCiclo/>
       </div>
     );
   }
