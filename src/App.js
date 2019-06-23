@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import EjemploCiclo from './sections/ejemploCicloAcualizacion';
+import BitCoinPrice from './sections/container-component/index';
 
 class App extends React.Component{
 
   render(){
     return (
       <div className="App">
-      <EjemploCiclo/>
+      <BitCoinPrice />
       </div>
     );
   }

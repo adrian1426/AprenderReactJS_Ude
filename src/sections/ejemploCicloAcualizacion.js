@@ -27,7 +27,7 @@ AnimalImage.defaultProps= {
 }
 
 class EjemploCicloActualizacion extends Component{
-    state={animal:'cat'}
+    state={animal:'dolphin'}
     render(){
         return(
             <div>
